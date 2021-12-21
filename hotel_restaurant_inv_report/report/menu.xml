@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE xml>
+<odoo>
+    <report
+    id="report_hotel_restaurant_inv_report_menu"
+    string="Nota"
+    report_type="qweb-pdf"
+    model="hotel.reservation.order"
+    file="hotel_restaurant_inv_report.menu"
+    name="hotel_restaurant_inv_report.hotel_restaurant_inv_report_menu_report"
+    />
+    
+    <template id="hotel_restaurant_inv_report_menu_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="hotel_restaurant_inv_report.hotel_restaurant_inv_report_doc" t-lang="doc.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

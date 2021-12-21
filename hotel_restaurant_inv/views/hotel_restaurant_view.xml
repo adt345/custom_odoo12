@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE xml>
+<odoo>
+    <record id="viewhotel_reservation_order_form2" model="ir.ui.view">
+        <field name="name">hotel.reservation.order.form2</field>
+        <field name="model">hotel.reservation.order</field>
+        <field name="inherit_id" ref='hotel_restaurant.view_hotel_reservation_order_form'/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='done_kot']" position="before">
+                <button name="create_invoice" class="btn btn-primary"  string="Create Invoice" type="object" attrs="{'invisible' : ['|', ('invoice_id','!=',False), ('state','not in',('order'))]}" />
+                <button name="view_invoice" class="btn btn-primary"  string="View Invoice" type="object"  attrs="{'invisible' : [('state','not in',('order'))]}" />
+                <field name="invoice_id" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
